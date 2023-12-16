@@ -11,7 +11,8 @@ function App() {
   //   onSuccess: tokenResponse => console.log(tokenResponse),
   // });
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('');
+  const [picture, setPicture] = useState('');
  
   return (
     <>
@@ -22,13 +23,14 @@ function App() {
       console.log(credentialResponseDecoded);
       setName(credentialResponseDecoded.name)
       setEmail(credentialResponseDecoded.email)
-     
+      setPicture(credentialResponseDecoded.picture)
     }}
     onError={() => {
       console.log('Login Failed')
       
     }}
   />
+  <img src={picture} className='img-profile'/>
   <h4>Name: {name} </h4>
   <p>Email: {email}</p>
     </div>
